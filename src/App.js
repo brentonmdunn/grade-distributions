@@ -288,6 +288,8 @@ function App() {
               </ThemeProvider>
             </div>
           )}
+
+        {filteredCourses.length === 0 && <div>No results</div>}
       </div>
     </div>
   );
