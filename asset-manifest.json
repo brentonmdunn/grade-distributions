@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/grade-distributions/static/css/main.6c002b65.css",
-    "main.js": "/grade-distributions/static/js/main.966fb53f.js",
+    "main.css": "/grade-distributions/static/css/main.c828c9c0.css",
+    "main.js": "/grade-distributions/static/js/main.ccf1fd77.js",
     "static/js/592.4aa4772d.chunk.js": "/grade-distributions/static/js/592.4aa4772d.chunk.js",
     "index.html": "/grade-distributions/index.html",
-    "main.6c002b65.css.map": "/grade-distributions/static/css/main.6c002b65.css.map",
-    "main.966fb53f.js.map": "/grade-distributions/static/js/main.966fb53f.js.map",
+    "main.c828c9c0.css.map": "/grade-distributions/static/css/main.c828c9c0.css.map",
+    "main.ccf1fd77.js.map": "/grade-distributions/static/js/main.ccf1fd77.js.map",
     "592.4aa4772d.chunk.js.map": "/grade-distributions/static/js/592.4aa4772d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c002b65.css",
-    "static/js/main.966fb53f.js"
+    "static/css/main.c828c9c0.css",
+    "static/js/main.ccf1fd77.js"
   ]
 }
