@@ -3,10 +3,11 @@
 body {
     font-family: "Roboto", sans-serif;
     color: #23272f;
+    background-color: purple;
 }
 
 .header {
-    background-color: #f8f8f9;
+    background-color: #374050;
     padding-top: 30px;
     margin-top: -10px;
     padding-bottom: 20px;
@@ -14,61 +15,35 @@ body {
 
 .welcome {
     padding: 100px;
+    background-color: #23272f;
+    margin-top: -20px;
 }
 
 .App {
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .course {
-    margin: 10px;
     display: flex;
-    /* Use flexbox for layout */
-    background-color: #f8f8f9;
+    flex-wrap: wrap;
+    background-color: #23272f;
+    justify-content: center;
 }
 
 .column {
-    flex: 1;
-    /* Each column takes up equal space */
+    flex-basis: calc(
+        33.33% - 20px
+    ); /* Each column takes up 1/3 of the available space */
     padding: 20px;
-    border: 1px solid #ccc;
-    margin: 10px;
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex-basis: calc(
+            100% - 20px
+        ); /* Each column takes up 100% of the available space */
+    }
 }
 
 .blue {
@@ -78,10 +53,18 @@ body {
 .selectContainer {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
 }
 
-.selectContainer label {
+.selectContainer .inputLabel {
     margin: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .selectContainer .inputLabel {
+        flex-basis: 100%; /* Each label takes up 100% of the available width */
+        margin: 10px; /* Adjust margin for smaller screens */
+    }
 }
 
 .clear {
@@ -92,7 +75,7 @@ body {
     background-color: white;
 }
 .clear:hover {
-    cursor: pointer; /* You can change it to any other valid cursor value */
+    cursor: pointer;
     background-color: #f8f8f9;
 }
 
@@ -109,4 +92,9 @@ body {
 
 button:hover {
     cursor: pointer;
+}
+
+.footer {
+    padding: 50px;
+    background-color: #23272f;
 }

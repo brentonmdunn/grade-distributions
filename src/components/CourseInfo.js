@@ -3,6 +3,7 @@ import React from "react";
 function CourseInfo({ course }) {
   return (
     <div>
+      <br />
       <h1>
         {course.subject} {course.courseNumber} {course.quarter}
         {course.year}
