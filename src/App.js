@@ -209,12 +209,12 @@ function App() {
                 />
               </ThemeProvider>
             </label>
-            <div>
-              <strong>Example input:</strong> Subject: CSE, Course Number: 12,
-              Instructor: Cao, Yingjun
-              <br />
-              Not all fields need to be filled out for the search to work.
-            </div>
+          </div>
+          <div>
+            <strong>Example input:</strong> Subject: CSE, Course Number: 12,
+            Instructor: Cao, Yingjun
+            <br />
+            Not all fields need to be filled out for the search to work.
           </div>
         </form>
       </div>
