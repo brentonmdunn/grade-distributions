@@ -289,7 +289,9 @@ function App() {
             </div>
           )}
 
-        {filteredCourses.length === 0 && <div>No results</div>}
+        {filteredCourses.length === 0 && (
+          <div className="footer">No results</div>
+        )}
       </div>
     </div>
   );

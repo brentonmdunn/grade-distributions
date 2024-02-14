@@ -43,7 +43,7 @@ body {
         flex-basis: calc(
             100% - 20px
         ); /* Each column takes up 100% of the available space */
-        padding-left: 50px;
+        padding-left: 130px;
     }
 }
 
@@ -96,6 +96,6 @@ button:hover {
 }
 
 .footer {
-    padding: 50px;
+    padding: 20px;
     background-color: #23272f;
 }
