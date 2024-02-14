@@ -43,7 +43,8 @@ body {
         flex-basis: calc(
             100% - 20px
         ); /* Each column takes up 100% of the available space */
-        padding-left: 130px;
+        /* padding-left: 120px; */
+        width: 100%;
     }
 }
 
