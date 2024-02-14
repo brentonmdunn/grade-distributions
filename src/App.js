@@ -42,7 +42,7 @@ function App() {
     setInstructorDataExists(true);
     setInstructorFilter(value);
     setVisibleItems(10);
-    if (value === null) {
+    if (value === null || value === "") {
       setInstructorDataExists(false);
     }
   };
@@ -51,7 +51,7 @@ function App() {
     setSubjectDataExists(true);
     setVisibleItems(10);
     setSubjectFilter(value);
-    if (value === null) {
+    if (value === null || value === "") {
       setSubjectDataExists(false);
     }
   };
@@ -60,7 +60,7 @@ function App() {
     setCourseNumberDataExists(true);
     setVisibleItems(10);
     setCourseNumberFilter(event.target.value);
-    if (event.target.value === null) {
+    if (event.target.value === null || event.target.value === "") {
       setCourseNumberDataExists(false);
     }
   };
@@ -71,6 +71,7 @@ function App() {
     courseNumberFilter,
     instructorFilter,
   ) => {
+    // 1 2 3
     if (subjectFilter && courseNumberFilter && instructorFilter) {
       let fullName = instructorFilter;
       let parts = fullName.split(", ");
@@ -83,13 +84,43 @@ function App() {
         course.instructorLastName === lastName &&
         course.instructorFirstName === firstName
       );
+
+      // 1 2
     } else if (subjectFilter && courseNumberFilter) {
       return (
         course.subject === subjectFilter &&
         course.courseNumber.toLowerCase() === courseNumberFilter.toLowerCase()
       );
+
+      // 2 3
+    } else if (courseNumberFilter && instructorFilter) {
+      let fullName = instructorFilter;
+      let parts = fullName.split(", ");
+      let lastName = parts[0];
+      let firstName = parts[1];
+      return (
+        course.instructorLastName === lastName &&
+        course.instructorFirstName === firstName &&
+        course.courseNumber === courseNumberFilter
+      );
+
+      // 1 3
+    } else if (subjectFilter && instructorFilter) {
+      let fullName = instructorFilter;
+      let parts = fullName.split(", ");
+      let lastName = parts[0];
+      let firstName = parts[1];
+      return (
+        course.instructorLastName === lastName &&
+        course.instructorFirstName === firstName &&
+        course.subject === subjectFilter
+      );
     } else if (subjectFilter) {
       return course.subject === subjectFilter;
+    } else if (courseNumberFilter) {
+      return (
+        course.courseNumber.toLowerCase() === courseNumberFilter.toLowerCase()
+      );
     } else if (instructorFilter) {
       let fullName = instructorFilter;
       let parts = fullName.split(", ");
@@ -274,20 +305,23 @@ function App() {
                 </div>
               </div>
             ))}
-        {Courses.length > visibleItems &&
-          filteredCourses.length > visibleItems && (
-            <div className="footer">
-              <ThemeProvider theme={darkTheme}>
-                <Button
-                  color="primary"
-                  onClick={handleShowMore}
-                  variant="outlined"
-                >
-                  Show More
-                </Button>
-              </ThemeProvider>
-            </div>
-          )}
+        {((Courses.length > visibleItems &&
+          filteredCourses.length > visibleItems) ||
+          (!subjectDataExists &&
+            !courseNumberDataExists &&
+            !instructorDataExists)) && (
+          <div className="footer">
+            <ThemeProvider theme={darkTheme}>
+              <Button
+                color="primary"
+                onClick={handleShowMore}
+                variant="outlined"
+              >
+                Show More
+              </Button>
+            </ThemeProvider>
+          </div>
+        )}
 
         {filteredCourses.length === 0 && (
           <div className="footer">No results</div>
