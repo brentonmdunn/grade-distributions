@@ -218,7 +218,7 @@ function App() {
       {filteredCourses &&
         // filteredCourses.length > 10 &&
         filteredCourses
-          // .reverse()
+          .reverse()
           .slice(0, visibleItems)
           .map((course) => {
             return (
@@ -270,7 +270,7 @@ function App() {
             return false;
           }
         })
-          // .reverse()
+          .reverse()
           .slice(0, visibleItems)
           .map((course) => {
             return (
@@ -288,8 +288,7 @@ function App() {
         {!subjectDataExists &&
           !courseNumberDataExists &&
           !instructorDataExists &&
-          Courses
-            // .reverse()
+          Courses.reverse()
             .slice(0, visibleItems)
             .map((course, index) => (
               <div key={index}>
