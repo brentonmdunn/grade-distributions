@@ -30,7 +30,8 @@ function WelcomePage() {
         <strong>
           This site is currently in an open beta phase. This means that some
           features may not be fully working or are slow and the site theme may
-          not be fully finished.
+          not be fully finished. Please see the "known issues" section at the
+          top of the website.
         </strong>
       </p>
     </div>
