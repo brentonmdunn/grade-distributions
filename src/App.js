@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 
 import WelcomePage from "./components/WelcomePage";
 import Header from "./components/Header";
+import FilteredOutput from "./components/FilteredOutput";
 
 const darkTheme = createTheme({
   palette: {
@@ -103,6 +104,18 @@ function App() {
     }
   };
 
+  const filteredCourses =
+    (subjectDataExists || courseNumberDataExists || instructorDataExists) &&
+    Courses &&
+    Courses.filter((course) =>
+      filterCourses(
+        course,
+        subjectFilter,
+        courseNumberFilter,
+        instructorFilter,
+      ),
+    );
+
   return (
     <div className="App">
       <p className="header">
@@ -169,7 +182,28 @@ function App() {
         </form>
       </div>
 
-      {(subjectDataExists || courseNumberDataExists || instructorDataExists) &&
+      {/* <FilteredOutput Courses={Courses} subjectDataExists={subjectDataExists} courseNumberDataExists={courseNumberDataExists} instructorDataExists={instructorDataExists} subjectFilter={subjectFilter} courseNumberFilter={courseNumberFilter}, instructorFilter={instructorFilter} visibleItems={visibleItems}/> */}
+
+      {filteredCourses &&
+        // filteredCourses.length > 10 &&
+        filteredCourses
+          .reverse()
+          .slice(0, visibleItems)
+          .map((course) => {
+            return (
+              <div className="course" key={course.id}>
+                <div className="column">
+                  <CourseInfo course={course} />
+                </div>
+                <div className="column">
+                  <BarChartLocal course={course} />
+                </div>
+              </div>
+            );
+          })}
+
+      {false &&
+        (subjectDataExists || courseNumberDataExists || instructorDataExists) &&
         Courses &&
         Courses.filter((course) => {
           if (subjectFilter && courseNumberFilter && instructorFilter) {
@@ -240,19 +274,20 @@ function App() {
                 </div>
               </div>
             ))}
-        {Courses.length > visibleItems && (
-          <div className="footer">
-            <ThemeProvider theme={darkTheme}>
-              <Button
-                color="primary"
-                onClick={handleShowMore}
-                variant="outlined"
-              >
-                Show More
-              </Button>
-            </ThemeProvider>
-          </div>
-        )}
+        {Courses.length > visibleItems &&
+          filteredCourses.length > visibleItems && (
+            <div className="footer">
+              <ThemeProvider theme={darkTheme}>
+                <Button
+                  color="primary"
+                  onClick={handleShowMore}
+                  variant="outlined"
+                >
+                  Show More
+                </Button>
+              </ThemeProvider>
+            </div>
+          )}
       </div>
     </div>
   );
